@@ -24,6 +24,7 @@ class AdapterPlaces () : RecyclerView.Adapter<AdapterPlaces.ViewHolder>() {
         // Holds the TextView that will add each picture to
         val placeImage: ImageView = view.place_image
         val name: TextView = view.name
+        val descripton: TextView = view.description
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -31,7 +32,8 @@ class AdapterPlaces () : RecyclerView.Adapter<AdapterPlaces.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model= items[position]
-        holder.name.text = "${model.name}: ${model.description}"
+        holder.name.text = model.name
+        holder.descripton.text = model.description
         Picasso.get()
             .load(model.image)
             .into(holder.placeImage)

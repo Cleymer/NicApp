@@ -18,7 +18,7 @@ class PlaceRepository constructor(
 ){
     suspend fun getPlaces(): Flow<DataState> = flow{
         emit(DataState.Loading)
-        delay(1000)
+        delay(2000)
         try {
             val placeData = placeRetrofit.get()
             val placeMap = networkMapper.mapFromEntityList(placeData)
